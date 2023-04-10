@@ -19,7 +19,6 @@
     class Home extends React.Component{
         constructor(props){
             super(props)
-            this.incremente=this.incremente.bind(this)
         }
         state={
             age:25,
@@ -30,10 +29,22 @@
             country:["moroccoo","almagne"],
             x:1
         }
+        onChangename=(e)=>{
+            console.log(e.target.value)
+            this.setState({
+                user:{
+                    ...this.state.user,
+                    name:e.target.value
+                }
+            })
+
+        }
         render(){
             return(
                 <div>
-            
+                    <p>{this.state.user.name}</p>
+                    <p>{this.state.user.lastname}</p>
+                    <input type="text"  onChange={this.onChangename}/>
                 </div>
 
             )
